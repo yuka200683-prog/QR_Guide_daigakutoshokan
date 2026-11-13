@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大学図書館</title>
+
+<style>
+body{
+    margin:0;
+    font-family:sans-serif;
+    text-align:center;
+    background:#f8f9fa;
+}
+
+.screen{
+    display:none;
+    min-height:100vh;
+    padding:40px 20px;
+    box-sizing:border-box;
+}
+
+.active{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.arrow{
+    font-size:120px;
+    margin:20px;
+}
+
+h1{
+    font-size:2em;
+}
+
+p{
+    font-size:1.3em;
+    max-width:500px;
+}
+
+button{
+    padding:15px 30px;
+    font-size:1.2em;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 画面1 -->
+<div id="screen1" class="screen active">
+    <h1>ようこそ！</h1>
+    <p>ここは大学図書館</p>
+　　<img src="daigakutosyokan.png">
+    <button onclick="nextScreen(2)">次に進む</button>
+</div>
+
+<!-- 画面2 -->
+<div id="screen2" class="screen">
+    <p>施設紹介</p>
+    <h1>図書や雑誌をはじめ、学術論文や電子資料など、さまざまな情報を収集・提供しています。館内には資料を閲覧できるスペースや学習スペースがあり、学生が自主的に学び、研究を進めるための環境が整えられています</h1>
+　　 <button onclick="nextScreen(3)">次に進む</button>
+</div>
+
+<!-- 画面3 -->
+<div id="screen3" class="screen">
+    <h1>あなたは今ここにいます</h1>
+　　<img src="daigakutosyokan1.png">
+    <p>次の目的地を探しましょう</p>
+　　 <button onclick="nextScreen(4)">次に進む</button>
+</div>
+
+<!-- 画面4 -->
+<div id="screen4" class="screen">
+    <h1>別の建物の位置を確認できます</h1>
+　　<a href="https://www.ocha.ac.jp/access/ochacampusmap.html">
+ 　 詳細なキャンパスマップはこちら</a>
+　　<img src="zentaizu.png">
+</div>
+
+
+<script>
+function nextScreen(num){
+    document.querySelectorAll(".screen").forEach(
+        s => s.classList.remove("active")
+    );
+
+    document
+      .getElementById("screen"+num)
+      .classList.add("active");
+}
+</script>
+
+</body>
+</html>
